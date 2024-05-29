@@ -41,13 +41,18 @@ function updateTimeDifference() {
         pluralize(years, 'year'),
         pluralize(months, 'month'),
         pluralize(weeks, 'week'),
-        pluralize(days, 'day'),
-        pluralize(hours, 'hour'),
-        pluralize(minutes, 'minute'),
-        pluralize(seconds, 'second')
+        pluralize(days, 'day')
     ].filter(part => part !== '').join(', ');
 
-    document.getElementById('time-difference').innerText = formattedDifference;
+    // Format hours, minutes, and seconds with leading zeros
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} seconds`;
+
+    // Combine date difference with formatted time
+    const finalFormattedDifference = formattedDifference
+        ? `${formattedDifference}, ${formattedTime}`
+        : formattedTime;
+
+    document.getElementById('time-difference').innerText = finalFormattedDifference;
 }
 
 setInterval(updateTimeDifference, 1000);
