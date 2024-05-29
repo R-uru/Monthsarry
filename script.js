@@ -7,7 +7,7 @@ function updateTimeDifference() {
 
     // Extract the difference in total seconds, minutes, hours, days, months, and years
     const seconds = Math.floor(diff / 1000) % 60;
-    const minutes = Math.floor(diff / (1000 * 60)) % 60;
+    const minutes = Math.floor(diff / (1000 * 60)) % 60;`  `
     const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
     
     // Calculate the difference in days, months, and years using date manipulation
@@ -49,7 +49,7 @@ function updateTimeDifference() {
 
     // Combine date difference with formatted time
     const finalFormattedDifference = formattedDifference
-        ? `${formattedDifference}, ${formattedTime}`
+        ? `Happy ${formattedDifference}, ${formattedTime}`
         : formattedTime;
 
     document.getElementById('time-difference').innerText = finalFormattedDifference;
